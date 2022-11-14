@@ -1,0 +1,28 @@
+.navbar {
+  background-color: rgb(89,96,109);
+  color: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 50px;
+}
+
+.img-responsive {
+  padding: 0px;
+  height: auto;
+  width: auto;
+  max-height: 130px;
+  margin-right: 20px;
+  margin-left: 0px
+}
+
+.table {
+  align-self: center;
+  max-width: 1500px;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
