@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-sm">
+  <div class="container-fluid">
+    <div class="topnav-left">
+      <a class="navbar-brand"><img class="img-responsive navbar-brand" id="logo" src="https://i.pinimg.com/originals/af/aa/8f/afaa8f5384fdc8c23ec0431b621b64e6.jpg"></a>
+      <a style="margin-right: 20px; text-decoration: none; color: white"><b>Administración de Gastos</b></a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div class="container" style="margin-top:10px">
+  <div style="max-height: 700px; width: 57%; margin-right: 40px">
+    <h2 style="margin-bottom:30px; border-bottom:solid; padding-bottom:20px">Revisión de Datos</h2>
+    <div style="max-height:700px; width:100%; overflow-y: scroll">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Monto</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Responsable</th>
+            <th scope="col">Departamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dato of datos">
+            <th scope="col">{{dato.monto}}</th>
+            <th scope="col">{{dato.descripcion}}</th>
+            <th scope="col">{{dato.responsable}}</th>
+            <th scope="col">{{dato.departamento}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="max-height:700px; width:40%;">
+    <h2 style="margin-bottom:30px; border-bottom:solid; padding-bottom:20px">Departamentos con Mayores Gastos</h2>
+    <div style="max-height:700px; width:100%;">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Gasto Total</th>
+            <th scope="col">Departamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dato of top3Gastos">
+            <th scope="col">{{dato.gasto}}</th>
+            <th scope="col">{{dato.departamento}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2 style="margin-bottom:30px; border-bottom:solid; padding-bottom:20px">Gastos Totales</h2>
+    <div style="max-height:700px; width:100%;">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Gasto Total</th>
+            <th scope="col">Mes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="col">{{gastoTotal}}</th>
+            <th scope="col">{{mes}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
