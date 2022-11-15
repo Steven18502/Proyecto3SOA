@@ -1,0 +1,9 @@
+# Get all requirements with pip.
+pip3 install -r requirements.txt
+
+# RUN MYSQL IMAGE COMMAND
+# need docker to be installed
+docker pull mysql:latest
+docker run --name db -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=dep_db -e MYSQL_USER=user -e MYSQL_PASSWORD=password -d mysql:latest
+
+
