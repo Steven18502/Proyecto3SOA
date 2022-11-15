@@ -98,53 +98,10 @@ def delete_records():
             cursor.close()
             connection.close()
             
-# Get method that return all the people information saved in the database
-@app.route('/all', methods=['GET'])
-def get_records():
-    try:
-        # Estabilishing  a connection cursor
-        connection = mysql.connector.connect(**config)
-
-        # Query for Creating the table
-        query_string = "SELECT * FROM dep_table"
-
-        # Creating a connection cursor
-        cursor = connection.cursor()
-
-        # Get current month
-        month = datetime.datetime.now()
-        month = month.strftime("%B")
-        
-        # Executing SQL Statement
-        cursor.execute(query_string)
-
-        # Fetches all rows from the last executed statement
-        records = cursor.fetchall()
-
-        # output list
-        output = []
-
-        # Iterate over the rows
-        for row in records:
-            dep = Department(row[1], row[2], row[3], row[4])
-            output.append(dep.to_json())
-        
-        # we close both the cursor and connection
-        cursor.close()
-        connection.close()
-
-        print("\n✅ "+str(len(output)),
-              "record(s) sent successfully")
-
-        return jsonify(output)
-
-    except mysql.connector.Error as error:
-        print("Failed to create table in MySQL: {}".format(error))
-        return jsonify({'error': 'Connection error. Data not found'})
-    
+            
 # Get method that return all the people information saved in the database
 @app.route('/', methods=['GET'])
-def get_records_current_month():
+def get_records():
     try:
         # Estabilishing  a connection cursor
         connection = mysql.connector.connect(**config)
