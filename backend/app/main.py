@@ -137,7 +137,9 @@ def get_records():
         print("\n✅ "+str(len(output)),
               "record(s) sent successfully")
 
-        return jsonify(output)
+        response = jsonify(output)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response, 200
 
     except mysql.connector.Error as error:
         print("Failed to create table in MySQL: {}".format(error))
@@ -180,11 +182,15 @@ def create_record():
         connection.commit()
         print("\n✅ "+str(cursor.rowcount),
               "record(s) inserted successfully into table")
-        return jsonify(data)
+        response = jsonify(data)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response, 200
 
     except mysql.connector.Error as error:
         print("❎ Failed to insert record: {}".format(error))
-        return jsonify(data)
+        response = jsonify(data)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response, 404
 
     finally:
         if connection.is_connected():
