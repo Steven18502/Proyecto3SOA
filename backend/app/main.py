@@ -7,10 +7,6 @@ import datetime
 
 app = Flask(__name__)
 
-#RUN MYSQL IMAGE COMMAND
-# docker pull mysql:latest
-# docker run --name db -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=dep_db -e MYSQL_USER=user -e MYSQL_PASSWORD=password -d mysql:latest
-
 # environment to connect to the database
 host = '172.17.0.2'
 port = 3306
