@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # encoding: utf-8
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import json
 import mysql.connector
 import datetime
 
 app = Flask(__name__)
+CORS(app) # allow all origins all methods
 
 # environment to connect to the database
 host = '172.17.0.2'
