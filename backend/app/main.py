@@ -200,4 +200,5 @@ if __name__ == '__main__':
     # delete_records()
     
     # Run api
+    # app.run(debug=True)
     app.run('0.0.0.0',5000)
