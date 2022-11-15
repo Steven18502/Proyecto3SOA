@@ -143,8 +143,9 @@ def get_records():
 
     except mysql.connector.Error as error:
         print("Failed to create table in MySQL: {}".format(error))
-        return jsonify({'error': 'Connection error. Data not found'})
-    
+        response = jsonify({'error': 'Connection error. Data not found'})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response, 404
 
 # This function insert single and multiple rows into the database table.
 @app.route('/', methods=['POST'])
@@ -182,13 +183,14 @@ def create_record():
         connection.commit()
         print("\n✅ "+str(cursor.rowcount),
               "record(s) inserted successfully into table")
-        response = jsonify(data)
+
+        response = jsonify(1)
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response, 200
 
     except mysql.connector.Error as error:
         print("❎ Failed to insert record: {}".format(error))
-        response = jsonify(data)
+        response = jsonify(0)
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response, 404
 
